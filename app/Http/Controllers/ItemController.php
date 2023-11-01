@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+
+
 
 class ItemController extends Controller
 {
@@ -24,7 +27,8 @@ class ItemController extends Controller
     public function index()
     {
         // 商品一覧取得
-        $items = Item::all();
+        //$items = Item::all();
+        $items = Item::paginate(5); //ページネート追加
 
         return view('item.index', compact('items'));
     }
@@ -36,9 +40,12 @@ class ItemController extends Controller
     {
         // POSTリクエストのとき
         if ($request->isMethod('post')) {
-            // バリデーション
+            
+            // バリデーション設定
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'required|max:100',
+                'detail' => 'required|max:500',
             ]);
 
             // 商品登録

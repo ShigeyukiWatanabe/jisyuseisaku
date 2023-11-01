@@ -41,6 +41,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+    <!-- pagination追加 -->
+    {{$items->appends(request()->query())->links('pagination::bootstrap-5')}}
+
                 </div>
             </div>
         </div>
