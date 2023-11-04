@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id()->comment('ID');
-            $table->bigInteger('user_id')->unsigned()->index()->comment('ユーザーID');
-            $table->string('name', 100)->index()->comment('名前');
-            $table->string('type',100)->nullable()->default(null)->comment('種別');
-            $table->string('detail', 500)->nullable()->default(null)->comment('詳細');
+            $table->string('type_name',100)->comment('工程名');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('types');
     }
 };

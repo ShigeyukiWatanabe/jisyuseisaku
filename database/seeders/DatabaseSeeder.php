@@ -18,5 +18,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //Itemデータをファクトリー作成するとき使用する。
+        //\App\Models\Item::factory(100)->create();
+
+        $this->call([
+            
+            ItemSeeder::class,
+            TypeSeeder::class,
+            
+        ]);
     }
 }

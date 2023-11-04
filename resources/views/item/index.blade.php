@@ -26,7 +26,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名前</th>
-                                <th>種別</th>
+                                <th>工程名</th>
                                 <th>詳細</th>
                             </tr>
                         </thead>

@@ -11,9 +11,11 @@
 @section('content')
     <p>Welcome to this beautiful admin panel.</p>
     <p>更新履歴</P>
-    <p>2023/10/31 ページネーション追加</p>
+    <p>2023/10/31 ページネーション追加、ログイン画面左上表示修正</p>
+    <p>2023/11/2 typesテーブル、ItemSeeder、TypeSeeder作成</p>
     <p></p>
-
+    <p></p>
+    <p></p>
 
 
         

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 
-
+use App\Models\Type;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
