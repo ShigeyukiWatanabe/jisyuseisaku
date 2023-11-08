@@ -290,11 +290,37 @@ return [
     */
 
     'menu' => [
+        
         [
-            'text' => '商品一覧',
+            'text' => '商品一覧　サイドメニュー',
             'url'  => 'items',
             'icon' => 'fas fa-gamepad',
         ],
+        
+
+
+
+//2023.11.5サイドバーの機能追加
+ // Navbar items:
+[
+    'type'         => 'navbar-search',
+    'text'         => 'search',
+    'topnav_right' => true,
+],
+//フルスクリーン表示切り替え
+[
+    'type'         => 'fullscreen-widget',
+    'topnav_right' => true,
+],
+// Sidebar items:
+[
+    'type' => 'sidebar-menu-search',
+    'text' => 'search',
+],
+
+
+
+
 
         // AdminLTEデフォルト
         /*

@@ -18,10 +18,13 @@ class Item extends Model
 
     protected $fillable = [
         'user_id',
+        'name_id',
         'name',
+        'stock',
         'type',
         'detail',
     ];
+
     public function type()
     {
         return $this->belongsTo(Type::class);

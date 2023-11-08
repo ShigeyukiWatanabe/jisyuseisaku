@@ -3,7 +3,7 @@
 @section('title', '商品登録')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h3>商品登録　画面です</h3>
 @stop
 
 @section('content')
@@ -23,13 +23,24 @@
                 <form method="POST">
                     @csrf
                     <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="name_id">製品コード</label>
+                            <input type="text" class="form-control" id="name_id" name="name_id" placeholder="製品コード">
+                        </div>
+
                         <div class="form-group">
                             <label for="name">名前</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="名前">
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
+                            <label for="name">在庫数</label>
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫数">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">工程名</label>
                             <input type="text" class="form-control" id="type" name="type" placeholder="種別">
                         </div>
 
@@ -37,6 +48,7 @@
                             <label for="detail">詳細</label>
                             <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
                         </div>
+                        
                     </div>
 
                     <div class="card-footer">
