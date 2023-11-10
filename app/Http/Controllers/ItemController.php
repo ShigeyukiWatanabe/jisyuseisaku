@@ -143,4 +143,50 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+
+
+
+    /**
+     * 登録内容編集
+     */
+    public function edit($id)
+    {
+        $item = Item::find($id);
+        // 種別テーブルから全件を取得する
+       // $types = Type::all();
+        //return view('edit', compact('item','types'));
+        return view('edit', compact('item'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // テーブル定義書に合わせて100文字までとする
+        $this->validate($request,[
+            'name' => 'required|max:100',
+        ]);
+
+        $item = Item::find($id);
+
+        // 登録内容の更新
+        $item->update([
+            'name_id' => $request->name_id,
+            'name' => $request->name,
+            'stock' => $request->stock,
+            'type' => $request->type,
+            'detail' => $request->detail,
+        ]);
+        return redirect('items')->with('flash_message', '登録内容の更新が完了しました');
+    }
+
+    // 削除機能
+    public function destroy($id)
+    {
+        $item = Item::find($id);
+        $item->delete();
+        return redirect("items")->with('flash_message', '登録内容の削除が完了しました');
+    }
+
+
+
 }

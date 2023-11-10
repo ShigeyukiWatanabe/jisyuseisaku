@@ -3,7 +3,7 @@
 @section('title', '商品登録')
 
 @section('content_header')
-    <h3>商品登録　画面です</h3>
+    <h4>製品登録画面</h4>
 @stop
 
 @section('content')
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <label for="name">在庫数</label>
-                            <input type="number" class="form-control" id="stock" name="stock" placeholder="在庫数">
+                            <input type="number" class="form-control" id="stock" name="stock" value="0" placeholder="在庫数">
                         </div>
 
                         <div class="form-group">
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                        <button type="submit" class="btn btn-success">登録</button>
                     </div>
                 </form>
             </div>
