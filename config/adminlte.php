@@ -292,33 +292,25 @@ return [
     'menu' => [
         
         [
-            'text' => '製品一覧　サイドメニュー',
+            'text' => '製品一覧',
             'url'  => 'items',
             'icon' => 'fas fa-gamepad',
         ],
         
+        // Navbar items:
 
+        //フルスクリーン表示切り替え
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
 
-
-//2023.11.5サイドバーの機能追加
- // Navbar items:
-[
-    'type'         => 'navbar-search',
-    'text'         => 'search',
-    'topnav_right' => true,
-],
-//フルスクリーン表示切り替え
-[
-    'type'         => 'fullscreen-widget',
-    'topnav_right' => true,
-],
-// Sidebar items:
-[
-    'type' => 'sidebar-menu-search',
-    'text' => 'search',
-],
-
-
+        // 製品登録
+        [
+            'text' => 'item_add',
+            'url'  => 'items/add',
+            'icon' => 'fas fa-registered',
+        ],
 
 
 

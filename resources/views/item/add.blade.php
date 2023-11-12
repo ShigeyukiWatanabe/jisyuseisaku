@@ -35,13 +35,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="name">在庫数</label>
+                            <label for="stock">在庫数</label>
                             <input type="number" class="form-control" id="stock" name="stock" value="0" placeholder="在庫数">
                         </div>
 
                         <div class="form-group">
                             <label for="type">工程名</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
+                            <select class="form-control" name="type">
+                                <option value="A工程">A工程</option>
+                                <option value="B工程">B工程</option>
+                                <option value="C工程">C工程</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

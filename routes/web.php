@@ -34,3 +34,5 @@ Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit'])->
 Route::post('/update/{id}', [App\Http\Controllers\ItemController::class, 'update'])->name('items.update');
 //削除
 Route::post('/destroy/{id}',[App\Http\Controllers\ItemController::class, 'destroy']);
+//検索
+Route::get('/search',[App\Http\Controllers\ItemController::class, 'index'])->name('items');
