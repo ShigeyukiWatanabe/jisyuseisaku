@@ -1,45 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', '製品データ編集')
 
 @section('content_header')
-    <h4>製品情報編集画面</h4>
+    <h4>製品データ編集画面</h4>
 @stop
 
 @section('content')
 
 
-{{--         
-            <label for="type_id">種別</label>
-            <select name="type_id" id="type_id" class="form-control">
-            
-                @foreach($types as $type)
-            
-            
-                    <option value="{{ $type->id }}" {{ $item->type_id == $type->id ? 'selected' : '' }}>
-                        {{ $type->type_name }}
-                    </option>
-                
-            
-                @endforeach
-            </select> 
-
-
-            <label for="detail">詳細</label>
-                <input type="text" name="detail" id="detail" value="{{ $item->detail }}">
-                <br>
-            <button type="submit">更新</button>
-        </form>
-    </div>
-</div>
-
-            </div>
-        </div>
-    </div>
---}}
-
-
-<!-- 製品登録のコピーを使用して作成中 -->
     <div class="row">
         <div class="col-md-10">
             @if ($errors->any())
@@ -97,13 +66,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
 
 
 @stop

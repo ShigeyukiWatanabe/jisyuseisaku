@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', '商品登録')
+@section('title', '製品登録')
 
 @section('content_header')
     <h4>製品登録画面</h4>

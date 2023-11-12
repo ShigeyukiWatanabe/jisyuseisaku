@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', '製品管理システム')
 
 @section('content_header')
     <!-- ホーム画面 -->

@@ -29,7 +29,7 @@ Route::prefix('items')->group(function () {
 
 //編集
 //Route::get('/items',[App\Http\Controllers\ItemController::class, 'index'])->name('items');
-//商品 編集
+//製品 編集
 Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit'])->name('items.edit');
 Route::post('/update/{id}', [App\Http\Controllers\ItemController::class, 'update'])->name('items.update');
 //削除
