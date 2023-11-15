@@ -25,8 +25,8 @@ class ItemController extends Controller
 
 
 
-/**
-     * 商品一覧画面  チーム開発よりコピー、検索機能
+    /**
+     * 商品一覧画面、検索機能
      */
 
 // 検索コード始まり
@@ -36,6 +36,7 @@ class ItemController extends Controller
         // 商品一覧画面表示をする際に検索キーワードがある場合、$keywordの変数に値が入ります。
         $keyword = $request->input('keyword');
         $count = 0; // 初期化
+        $pagi = 8; //ページネーションの数設定
     
         if (!empty($keyword)) {
             // もしも$keywordの変数がNull（false）でなければ$keywordの値を基に商品名と種別名、詳細のいずれかに$keywordの文字列を含んでいるレコードを抽出します。
@@ -50,7 +51,7 @@ class ItemController extends Controller
                 ->select('items.*', 'types.type_name')
                 */
                 ->select('items.*')
-                ->paginate(5);
+                ->paginate($pagi); //ページネーション
                 //->get();
 
                 $count = Item::where('name_id', 'LIKE', "%{$keyword}%")
@@ -79,7 +80,7 @@ class ItemController extends Controller
             //->get();
 */
 
-$items = DB::table('items')->paginate(5);
+$items = DB::table('items')->paginate($pagi); //ページネーション
 
 /*
             $count = Item::join('types', function ($join) {
@@ -116,17 +117,7 @@ $items = DB::table('items')->paginate(5);
 
         return view('item.index', compact('items'));
     }
-
-
 */
-
-
-
-
-
-
-
-
 
     /**
      * 商品登録
@@ -142,7 +133,7 @@ $items = DB::table('items')->paginate(5);
                 'name' => 'required|max:100',
                 'stock' => 'required|max:100',
                 'type' => 'required|max:100',
-                'detail' => 'required|max:500',
+                'detail' => 'max:500',
             ]);
 
             // 商品登録

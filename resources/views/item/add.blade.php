@@ -12,9 +12,9 @@
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
@@ -25,13 +25,15 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label for="name_id">製品コード</label>
-                            <input type="text" class="form-control" id="name_id" name="name_id" placeholder="製品コード">
+                            <label for="name_id">製品コード（入力必須、半角英数字のみ、文字数制限５文字）</label>
+                            <!-- 入力必須、半角英数字のみ、文字数制限５文字 -->
+                            <input type="text" class="form-control" id="name_id" name="name_id" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="製品コード">
                         </div>
 
                         <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <label for="name">製品名（入力必須）</label>
+                            <!-- 入力必須 -->
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="名前">
                         </div>
 
                         <div class="form-group">

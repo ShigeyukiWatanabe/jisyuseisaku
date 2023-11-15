@@ -14,33 +14,51 @@
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
                     </ul>
                 </div>
             @endif
 
             <div class="card card-primary">
                 
-                <form action="{{ route('items.update', ['id' => $item->id]) }}" method="POST">
+                <form action="{{ route('items.update', ['id' => $item->id]) }}" method="POST" oninput="sum.value = Number(stock.value) + Number(arrival.value) - Number(shipping.value);">
                     @csrf
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label for="name_id">製品コード</label>
-                            <input type="text" class="form-control" id="name_id" name="name_id" value={{ $item->name_id }}>
+                            <label for="name_id">製品コード（入力必須、半角英数字のみ、文字数制限５文字）</label>
+                            <!-- 入力必須、半角英数字のみ、文字数制限５文字 -->
+                            <input type="text" class="form-control" id="name_id" name="name_id" maxlength="5" pattern="^[a-zA-Z0-9]+$" required value={{ $item->name_id }}>
                         </div>
 
                         <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" value={{ $item->name }}>
+                            <label for="name">製品名（入力必須）</label>
+                            <!-- 入力必須 -->
+                            <input type="text" class="form-control" id="name" name="name" required value={{ $item->name }}>
                         </div>
 
                         <div class="form-group">
-                            <label for="stock">在庫数</label>
-                            <input type="number" class="form-control" id="stock" name="stock" value={{ $item->stock }}>
+                            <label for="stock">在庫数：</label>
+                            <input type="number" class="form-control mr-3" id="stock" name="stock" value={{ $item->stock }}>
+                        
+                        {{--
+                        <div class="form-group form-inline">
+                            <label for="stock">在庫数：</label>
+                            <input type="number" class="form-control mr-3" id="stock" name="stock" value={{ $item->stock }}>
+                        
+                            <label for="arrival">入荷数：</label>
+                            <input type="text" class="form-control mr-3" id="arrival" name="arrival" value="0">
+                        
+                            <label for="shipping">出荷数：</label>
+                            <input type="text" class="form-control mr-3" id="shipping" name="shipping" value="0">
+                            
+                            <output name="sum">0</output>
+                            <input type="button" class="btn btn-primary form-control" onclick=”” name="button_sum" value="計算する！">
+                        --}}
+
                         </div>
 
                         <div class="form-group">
