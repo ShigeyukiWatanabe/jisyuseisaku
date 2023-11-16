@@ -3,7 +3,7 @@
 @section('title', '製品一覧')
 
 @section('content_header')
-    <h4>製品一覧</h4>
+    <h5>製品一覧</h5>
 @stop
 
 @section('content')
@@ -27,6 +27,7 @@
         <input type="text" name="keyword">
         <input type="submit" value="検索">
         --}}
+
     </form>
 @if(isset($count) && $count > 0)
         <p>登録件数: {{ $count }} 件</p>
@@ -39,7 +40,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <!--<h3 class="card-title">製品一覧</h3>-->
+                    <!--<h5 class="card-title">製品一覧</h5>-->
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
                             <div class="input-group-append">
@@ -52,9 +53,7 @@
                     <table class="table table-hover text-nowrap table-bordered table-warning table-sm">
                         <thead>
                             <tr>
-
                                 {{-- <th>ID</th> --}}
-
                                 <th style="width: 10%">製品コード</th>
                                 <th style="width: 20%">名前</th>
                                 <th style="width: 10%">在庫数</th>
@@ -66,11 +65,9 @@
                         </thead>
                         <tbody>
 
-
                             @foreach ($items as $item)
                                 <tr class="item-row">
                                     {{-- <td>{{ $item->id }}</td> --}}
-
                                     <td>{{ $item->name_id }}</td>
                                     
                                     <td class="item-name-cell">
@@ -121,10 +118,6 @@
                     <!-- pagination追加 -->
                     {{$items->appends(request()->query())->links('pagination::bootstrap-5')}}
                 </div>
-                
-
- 
-
             </div>
         </div>
     </div>
@@ -138,14 +131,14 @@
     // 各アイテム行にクリックイベントリスナーを追加します
     document.querySelectorAll('.item-row').forEach(function (row) {
         row.addEventListener('click', function () {
-            // 詳細情報セル内の要素を取得
+            // 詳細、製品名情報セル内の要素を取得
             var partialDetail = row.querySelector('.partial-detail');
             var fullDetail = row.querySelector('.full-detail');
 
             var partialName = row.querySelector('.partial-name');
             var fullName = row.querySelector('.full-name');
 
-            // 詳細情報の表示を切り替えます
+            // 詳細、製品名情報の表示を切り替えます
             if (partialDetail.style.display === 'none' || partialDetail.style.display === '') {
                 partialDetail.style.display = 'block';
                 fullDetail.style.display = 'none';
@@ -162,5 +155,17 @@
             }
         });
     });
+    
+    //フラッシュメッセージの関数
+    (function() {
+        'use strict';
+
+        // フラッシュメッセージのfadeout
+        $(function(){
+            $('.flash_message').fadeOut(3000);
+        });
+
+    })();
+
 </script>
 @stop

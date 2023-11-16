@@ -22,11 +22,8 @@ class ItemController extends Controller
         $this->middleware('auth');
     }
 
-
-
-
     /**
-     * 商品一覧画面、検索機能
+     * 製品一覧、検索機能
      */
 
 // 検索コード始まり
@@ -36,7 +33,7 @@ class ItemController extends Controller
         // 商品一覧画面表示をする際に検索キーワードがある場合、$keywordの変数に値が入ります。
         $keyword = $request->input('keyword');
         $count = 0; // 初期化
-        $pagi = 8; //ページネーションの数設定
+        $pagi = 8; //ページネーションの表示数設定
     
         if (!empty($keyword)) {
             // もしも$keywordの変数がNull（false）でなければ$keywordの値を基に商品名と種別名、詳細のいずれかに$keywordの文字列を含んでいるレコードを抽出します。
@@ -98,23 +95,17 @@ $items = DB::table('items')->paginate($pagi); //ページネーション
 
 // 検索コード終わり
 
-
-
-
-
     /**
-     * 商品一覧
+     * 商品一覧（検索なし）
      */
-
-/* 検索機能追加のためコメント化
-
+/*
     public function index(Request $request)
     {
         // 商品一覧画面、一覧の取得
         //$items = Item::all();
         //ページネート追加
         $items = Item::paginate(5); 
-
+        
         return view('item.index', compact('items'));
     }
 */
