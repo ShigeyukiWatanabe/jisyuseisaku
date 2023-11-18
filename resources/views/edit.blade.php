@@ -42,24 +42,8 @@
 
                         <div class="form-group">
                             <label for="stock">在庫数：</label>
-                            <!-- ０以上の数字のみ -->
+                            <!-- ０以上の数字のみ入力 -->
                             <input type="number" min="0" class="form-control mr-3" id="stock" name="stock" value={{ $item->stock }}>
-                        
-                        {{--
-                        <div class="form-group form-inline">
-                            <label for="stock">在庫数：</label>
-                            <input type="number" class="form-control mr-3" id="stock" name="stock" value={{ $item->stock }}>
-                        
-                            <label for="arrival">入荷数：</label>
-                            <input type="text" class="form-control mr-3" id="arrival" name="arrival" value="0">
-                        
-                            <label for="shipping">出荷数：</label>
-                            <input type="text" class="form-control mr-3" id="shipping" name="shipping" value="0">
-                            
-                            <output name="sum">0</output>
-                            <input type="button" class="btn btn-primary form-control" onclick=”” name="button_sum" value="計算する！">
-                        --}}
-
                         </div>
 
                         <div class="form-group">
@@ -86,7 +70,6 @@
             </div>
         </div>
     </div>
-
 
 @stop
 

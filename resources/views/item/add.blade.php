@@ -26,7 +26,7 @@
 
                         <div class="form-group">
                             <label for="name_id">製品コード（半角英数字のみ、文字数制限５文字）<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                            <!-- 入力必須、半角英数字のみ、文字数制限５文字 -->
+                            <!-- 入力必須、半角英数字のみ、文字数制限５文字まで -->
                             <input type="text" class="form-control" id="name_id" name="name_id" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="製品コード">
                         </div>
 
@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label for="stock">在庫数</label>
-                            <!-- ０以上の数字のみ -->
+                            <!-- ０以上の数字のみ入力 -->
                             <input type="number" min="0" class="form-control" id="stock" name="stock" value="0" placeholder="在庫数">
                         </div>
 

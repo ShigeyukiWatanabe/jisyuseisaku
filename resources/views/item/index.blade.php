@@ -100,7 +100,7 @@
                                             {{ $item->detail }}
                                         </div>
                                     </td>
-
+                                    
                                     <td>{{ $item->updated_at }}</td>
                                     
                                     <!-- 各項目の編集、削除機能 -->

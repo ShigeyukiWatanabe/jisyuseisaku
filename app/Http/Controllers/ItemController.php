@@ -25,93 +25,37 @@ class ItemController extends Controller
     /**
      * 製品一覧、検索機能
      */
-
-// 検索コード始まり
     
     public function index(Request $request)
     {
-        // 商品一覧画面表示をする際に検索キーワードがある場合、$keywordの変数に値が入ります。
+        // 製品一覧画面表示をする際に検索キーワードがある場合、$keywordの変数に値が入ります。
         $keyword = $request->input('keyword');
-        $count = 0; // 初期化
+        $count = 0; // カウント初期化
         $pagi = 8; //ページネーションの表示数設定
     
         if (!empty($keyword)) {
-            // もしも$keywordの変数がNull（false）でなければ$keywordの値を基に商品名と種別名、詳細のいずれかに$keywordの文字列を含んでいるレコードを抽出します。
             $items = Item::where('name_id', 'LIKE', "%{$keyword}%")
                 ->orWhere('name', 'LIKE', "%{$keyword}%")
                 ->orWhere('type', 'LIKE', "%{$keyword}%")
-/*
-                ->orWhere('detail', 'LIKE', "%{$keyword}%")
-                ->join('types', function ($join) {
-                    $join->on('items.type_id', 'types.id');
-                })
-                ->select('items.*', 'types.type_name')
-                */
                 ->select('items.*')
                 ->paginate($pagi); //ページネーション
-                //->get();
-
+                
                 $count = Item::where('name_id', 'LIKE', "%{$keyword}%")
                 ->orWhere('name', 'LIKE', "%{$keyword}%")
                 ->orWhere('type', 'LIKE', "%{$keyword}%")
-/*
-                ->orWhere('detail', 'LIKE', "%{$keyword}%")
-                ->join('types', function ($join) {
-                    $join->on('items.type_id', 'types.id');
-                })
-                ->select('items.*', 'types.type_name')
-                */
                 ->select('items.*')
                 ->count();
-
-
-
         } else {
-
-            // $keywordが入力されていない場合は、商品テーブルと種別テーブルを結合し、トップ画面に渡します。
-/*
-            $items = Item::join('types', function ($join) {
-                $join->on('items.type_id', 'types.id');
-            })->select('items.*', 'types.type_name')
-            ->paginate(5);
-            //->get();
-*/
-
-$items = DB::table('items')->paginate($pagi); //ページネーション
-
-/*
-            $count = Item::join('types', function ($join) {
-                $join->on('items.type_id', 'types.id');
-            })->select('items.*', 'types.type_name')
-            ->count();
-*/
+            $items = DB::table('items')->paginate($pagi); //ページネーション
             $count = Item::count();
         }
     
         // itemsの配列と検索結果の件数をトップ画面に渡しています。
         return view('item.index', compact('items', 'count'));
-
     }
 
-// 検索コード終わり
-
     /**
-     * 商品一覧（検索なし）
-     */
-/*
-    public function index(Request $request)
-    {
-        // 商品一覧画面、一覧の取得
-        //$items = Item::all();
-        //ページネート追加
-        $items = Item::paginate(5); 
-        
-        return view('item.index', compact('items'));
-    }
-*/
-
-    /**
-     * 商品登録
+     * 製品登録
      */
     public function add(Request $request)
     {
@@ -127,7 +71,7 @@ $items = DB::table('items')->paginate($pagi); //ページネーション
                 'detail' => 'max:500',
             ]);
 
-            // 商品登録
+            // 製品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name_id' => $request->name_id,
@@ -152,9 +96,6 @@ $items = DB::table('items')->paginate($pagi); //ページネーション
     public function edit($id)
     {
         $item = Item::find($id);
-        // 種別テーブルから全件を取得する
-       // $types = Type::all();
-        //return view('edit', compact('item','types'));
         return view('edit', compact('item'));
     }
 
@@ -185,7 +126,4 @@ $items = DB::table('items')->paginate($pagi); //ページネーション
         $item->delete();
         return redirect("items")->with('flash_message', '登録内容の削除が完了しました');
     }
-
-
-
 }
