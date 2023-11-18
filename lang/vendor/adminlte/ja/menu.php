@@ -17,5 +17,5 @@ return [
     'warning'                       => '警告',
     'information'                   => 'インフォメーション',
     
-    'item_add'                      => '新規製品登録',
+    'item_add'                      => '製品登録',
 ];
