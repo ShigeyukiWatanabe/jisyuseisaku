@@ -68,7 +68,7 @@
                             @foreach ($items as $item)
                                 <tr class="item-row">
                                     {{-- <td>{{ $item->id }}</td> --}}
-                                    <td>{{ $item->name_id }}</td>
+                                    <td>{{ $item->name_id }}</td>    <!-- 製品コード -->
                                     
                                     <td class="item-name-cell">
                                         <div class="partial-name">
@@ -80,12 +80,12 @@
                                         </div>
                                         <!-- クリックされた時の文字の表示設定 -->
                                         <div class="full-name" style="display: none;">
-                                            {{ $item->name }}
+                                            {{ $item->name }}   <!-- 製品名 -->
                                         </div>
                                     </td>
                                     
-                                    <td>{{ $item->stock }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->stock }}</td> <!-- 在庫数 -->
+                                    <td>{{ $item->type }}</td>  <!-- 工程名 -->
                                     
                                     <td class="item-detail-cell">
                                         <div class="partial-detail">
@@ -97,7 +97,7 @@
                                         </div>
                                         <!-- クリックされた時の文字の表示設定 -->
                                         <div class="full-detail" style="display: none;">
-                                            {{ $item->detail }}
+                                            {{ $item->detail }}     <!-- 詳細 -->
                                         </div>
                                     </td>
                                     
